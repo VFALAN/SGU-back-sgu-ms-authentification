@@ -1,7 +1,7 @@
 package com.msc.ms.authentification;
 
-import com.msc.ms.authentification.log.authentication.AuthenticationService;
-import com.msc.ms.authentification.log.authentication.model.LoginRequestDTO;
+import com.msc.ms.authentification.authentication.AuthenticationService;
+import com.msc.ms.authentification.authentication.model.LoginRequestDTO;
 import com.msc.ms.authentification.password.PasswordGenerator;
 import io.jsonwebtoken.lang.Assert;
 import lombok.extern.slf4j.Slf4j;

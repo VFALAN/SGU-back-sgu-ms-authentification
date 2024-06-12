@@ -1,6 +1,6 @@
-package com.msc.ms.authentification.log.authentication;
+package com.msc.ms.authentification.authentication;
 
-import com.msc.ms.authentification.log.authentication.model.LoginRequestDTO;
+import com.msc.ms.authentification.authentication.model.LoginRequestDTO;
 import com.msc.ms.authentification.jwt.JwtService;
 import com.msc.ms.authentification.user.UserService;
 import lombok.RequiredArgsConstructor;

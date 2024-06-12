@@ -1,4 +1,4 @@
-package com.msc.ms.authentification.error;
+package com.msc.ms.authentification.configuration.error;
 
 import lombok.Builder;
 

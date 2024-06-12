@@ -39,7 +39,7 @@ public class UserService {
     }
 
     public UserDetailDTO buildUserDetails(String username) {
-
+        log.info("trying to log in for user {}", username);
         final var user = this.findUser(username);
         final var logPassword = getPassword(user);
         // cargar los modulos del perfil

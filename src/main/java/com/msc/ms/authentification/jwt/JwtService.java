@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.ObjectError;
 
 import java.security.Key;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 import java.util.function.Function;
@@ -28,6 +29,7 @@ public class JwtService {
         return Jwts.builder()
                 .setClaims(extraClaims)
                 .setSubject(userDetails.getUsername())
+                .setExpiration(this.buildExpiration(new Date()))
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .signWith(SignatureAlgorithm.HS512, this.SECRET_KEY)
                 .compact();
@@ -47,6 +49,13 @@ public class JwtService {
     public <T> T getClaim(String token, Function<Claims, T> claimsResolver) {
         final var claims = getAllClaims(token);
         return claimsResolver.apply(claims);
+    }
+
+    private Date buildExpiration(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.MINUTE, 30);
+        return calendar.getTime();
     }
 
     private Date getExpiration(String token) {

@@ -25,7 +25,7 @@ public class LogPassEntity extends AuditEntity {
     private Boolean expired;
 
     @JoinColumn(name = "ID_USER")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private UserEntity idUser;
 
 

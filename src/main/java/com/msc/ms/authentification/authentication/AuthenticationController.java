@@ -1,6 +1,6 @@
-package com.msc.ms.authentification.log.authentication;
+package com.msc.ms.authentification.authentication;
 
-import com.msc.ms.authentification.log.authentication.model.LoginRequestDTO;
+import com.msc.ms.authentification.authentication.model.LoginRequestDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
