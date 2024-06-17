@@ -49,6 +49,15 @@ public class UserService {
 
     }
 
+    public Boolean validIsUsernameACurrentUser(String username) {
+        final var mOptionalUserEntity = iUserRepository.findByUserName(username);
+        return mOptionalUserEntity.isPresent();
+    }
+
+    public Boolean validIsEmailACurrentUser(String pEmail) {
+        final var mOptionUserEntity = iUserRepository.findByEmail(pEmail);
+        return mOptionUserEntity.isPresent();
+    }
 
     protected LogPassEntity getPassword(UserEntity userEntity) {
         return this.iLogPassRepository.finaAllByUser(userEntity).getFirst();
