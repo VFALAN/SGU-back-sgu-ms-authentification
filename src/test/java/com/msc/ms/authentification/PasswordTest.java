@@ -31,16 +31,16 @@ class PasswordTest {
 
         final var request = LoginRequestDTO.builder().username("alanvillafan95@gmail.com").password("Hola123$").build();
         final var token = this.authenticationService.login(request);
-        log.info(token);
-        Assert.hasText(token);
+        log.info(token.getAccessToken());
+        Assert.hasText(token.getAccessToken());
     }
     @Test
     void validAuthenticationUsername() {
 
         final var request = LoginRequestDTO.builder().username("vifaAdmin").password("Hola123$").build();
         final var token = this.authenticationService.login(request);
-        log.info(token);
-        Assert.hasText(token);
+        log.info(token.getAccessToken());
+        Assert.hasText(token.getAccessToken());
     }
     @Test
     void validAuthenticationFail() {
