@@ -1,6 +1,7 @@
 package com.msc.ms.authentification.authentication;
 
 import com.msc.ms.authentification.authentication.model.LoginRequestDTO;
+import com.msc.ms.authentification.authentication.model.LoginResponseDTO;
 import com.msc.ms.authentification.jwt.JwtService;
 import com.msc.ms.authentification.user.UserService;
 import lombok.RequiredArgsConstructor;
@@ -21,12 +22,13 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
 
-    public String login(LoginRequestDTO loginRequestDTO) {
+    public LoginResponseDTO login(LoginRequestDTO loginRequestDTO) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequestDTO.getUsername(), loginRequestDTO.getPassword()));
         UserDetails user = userService.buildUserDetails(loginRequestDTO.getUsername());
         final var hash = new HashMap<String,String>();
         hash.put("DashBoard","General");
-        return jwtService.getToken(hash, user);
+        final var accessToken =  jwtService.getToken(hash, user);
+        return LoginResponseDTO.builder().accessToken(accessToken).build();
     }
 
 
