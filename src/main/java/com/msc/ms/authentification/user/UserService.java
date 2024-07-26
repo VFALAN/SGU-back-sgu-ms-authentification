@@ -45,8 +45,6 @@ public class UserService {
         // cargar los modulos del perfil
 
         return new UserDetailDTO(user.getUserName(), logPassword.getPassword(), user.getActive(), logPassword.getExpired(), List.of("test"));
-
-
     }
 
     public Boolean validIsUsernameACurrentUser(String username) {

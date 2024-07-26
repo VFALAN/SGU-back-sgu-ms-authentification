@@ -22,8 +22,8 @@ public class ProfileEntity extends AuditEntity {
     private String name;
     @Column(name = "KEY_PROFILE")
     private String key;
-    @OneToMany(mappedBy = "profile")
+    @OneToMany(mappedBy = "profile",fetch = FetchType.LAZY)
     private List<UserEntity> userEntityList;
-    @OneToMany(mappedBy = "profile")
+    @OneToMany(mappedBy = "profile",fetch = FetchType.LAZY)
     private List<ModuleProfileEntity> moduleProfileList;
 }
