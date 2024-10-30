@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface ILogPassRepository extends JpaRepository<LogPassEntity, Integer> {
-    @Query("select l from LogPassEntity l where l.idUser =:user order by l.dateCreate desc")
-    List<LogPassEntity> finaAllByUser(@Param("user") UserEntity pUserEntity);
+    @Query("select l from LogPassEntity l where l.idUser =:user order by l.dateCreate desc limit 1")
+    LogPassEntity finaAllByUser(@Param("user") UserEntity pUserEntity);
 }

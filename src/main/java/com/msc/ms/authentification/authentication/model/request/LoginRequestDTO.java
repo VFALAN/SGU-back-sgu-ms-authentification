@@ -1,4 +1,4 @@
-package com.msc.ms.authentification.authentication.model;
+package com.msc.ms.authentification.authentication.model.request;
 
 import lombok.Builder;
 import lombok.Data;

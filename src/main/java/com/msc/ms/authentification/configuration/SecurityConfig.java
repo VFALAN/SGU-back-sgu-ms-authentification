@@ -18,12 +18,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
     private final AuthenticationProvider authenticationProvider;
     private final JwtFilter jwtFilter;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity.csrf(AbstractHttpConfigurer::disable)
 
                 .authorizeHttpRequests(authRequest ->
-                        authRequest.requestMatchers("/api/login","/api/identity","/actuator","/actuator/**").permitAll()
+                        authRequest.requestMatchers("/ms-authentication/api/login", "/api/login", "/api/identity", "/actuator", "/actuator/**").permitAll()
                                 .anyRequest().authenticated())
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
