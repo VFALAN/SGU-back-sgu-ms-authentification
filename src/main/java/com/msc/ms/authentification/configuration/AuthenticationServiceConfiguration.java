@@ -1,8 +1,10 @@
 package com.msc.ms.authentification.configuration;
 
+import com.msc.ms.authentification.authentication.error.MscAuthenticationException;
 import com.msc.ms.authentification.filters.JwtFilter;
 import com.msc.ms.authentification.user.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -52,6 +54,8 @@ public class AuthenticationServiceConfiguration {
         return daoAuthenticationProvider;
     }
 
+
+    @SneakyThrows
     @Bean
     public UserDetailsService userDetailsService() {
         return userService::buildUserDetails;

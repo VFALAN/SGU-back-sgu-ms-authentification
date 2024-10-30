@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @Table(name = "TLOG_PASS")
 @Entity
@@ -23,7 +25,8 @@ public class LogPassEntity extends AuditEntity {
     private String password;
     @Column(name = "EXPIRED")
     private Boolean expired;
-
+    @Column(name = "EXPIRED_DATE")
+    private Date expiredDate;
     @JoinColumn(name = "ID_USER")
     @ManyToOne(fetch = FetchType.LAZY)
     private UserEntity idUser;

@@ -16,7 +16,7 @@ public class LogPassService {
     private final ILogPassRepository iLogPassRepository;
 
 
-    public List<LogPassEntity> findAllByUser(UserEntity userEntity){
+    public LogPassEntity findAllByUser(UserEntity userEntity){
         return this.iLogPassRepository.finaAllByUser(userEntity);
     }
 }

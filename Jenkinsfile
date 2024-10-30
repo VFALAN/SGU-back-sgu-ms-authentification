@@ -32,7 +32,7 @@ pipeline {
                                      string(credentialsId: 'k8s-token', variable: 'api_token')
                                      ]) {
                                      bat 'dir'
-                           bat 'kubectl --token $api_token --server http://127.0.0.1:51416 apply -f DeployK8s.yaml --validate=false'
+                           bat 'kubectl --token $api_token --server http://127.0.0. apply -f DeployK8s.yaml --validate=false'
                          }
         }
 
